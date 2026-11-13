@@ -1,0 +1,167 @@
+[
+  {
+    "region_id": "europe",
+    "site": "North warehouse",
+    "version": 1,
+    "valid_from": "2026-11-01T00:00:00Z",
+    "source_ref": "europe-synthetic-site-rules-v1",
+    "content": {
+      "notice": "Synthetic policy for this demonstration only. Not operational safety guidance.",
+      "rules": {
+        "pedestrian_vehicle_proximity": {
+          "threshold_m": 2,
+          "below_threshold": {
+            "decision": "confirmed",
+            "severity": "high"
+          },
+          "at_or_above_threshold": {
+            "decision": "rejected",
+            "severity": null
+          },
+          "exceptions": "Apply relevant supervisor-approved guidance about verified barriers. A schedule alone does not establish a barrier or safe separation."
+        },
+        "blocked_exit": {
+          "duration_threshold_seconds": 60,
+          "at_or_above_threshold": {
+            "decision": "confirmed",
+            "severity": "medium"
+          },
+          "below_threshold": {
+            "decision": "rejected",
+            "severity": null
+          }
+        },
+        "restricted_area_entry": {
+          "authorized": {
+            "decision": "rejected",
+            "severity": null
+          },
+          "unauthorized": {
+            "decision": "confirmed",
+            "severity": "high"
+          },
+          "unknown": "Ask a supervisor whether this person was authorized. Do not infer authorization from another person or a delivery schedule."
+        }
+      },
+      "schedule": {
+        "deliveries": "Tuesday 06:00–10:00 UTC",
+        "note": "Planned activity is background context, not proof that a particular incident was authorized or safe."
+      },
+      "layout": {
+        "Dock 3": "Vehicle movements and a marked pedestrian route. Barrier status is not established by this source.",
+        "Aisle 2": "Maintenance access zone; event-specific authorization must be checked.",
+        "East exit": "Marked exit route; keep clear."
+      }
+    }
+  },
+  {
+    "region_id": "us",
+    "site": "West warehouse",
+    "version": 1,
+    "valid_from": "2026-11-01T00:00:00Z",
+    "source_ref": "us-synthetic-site-rules-v1",
+    "content": {
+      "notice": "Synthetic policy for this demonstration only. Not operational safety guidance.",
+      "rules": {
+        "pedestrian_vehicle_proximity": {
+          "threshold_m": 2,
+          "below_threshold": {
+            "decision": "confirmed",
+            "severity": "high"
+          },
+          "at_or_above_threshold": {
+            "decision": "rejected",
+            "severity": null
+          },
+          "exceptions": "Apply relevant supervisor-approved guidance about verified barriers. A schedule alone does not establish a barrier or safe separation."
+        },
+        "blocked_exit": {
+          "duration_threshold_seconds": 60,
+          "at_or_above_threshold": {
+            "decision": "confirmed",
+            "severity": "medium"
+          },
+          "below_threshold": {
+            "decision": "rejected",
+            "severity": null
+          }
+        },
+        "restricted_area_entry": {
+          "authorized": {
+            "decision": "rejected",
+            "severity": null
+          },
+          "unauthorized": {
+            "decision": "confirmed",
+            "severity": "high"
+          },
+          "unknown": "Ask a supervisor whether this person was authorized. Do not infer authorization from another person or a delivery schedule."
+        }
+      },
+      "schedule": {
+        "deliveries": "Monday 07:00–11:00 UTC",
+        "note": "Planned activity is background context, not proof that a particular incident was authorized or safe."
+      },
+      "layout": {
+        "Dock 3": "Vehicle movements and a marked pedestrian route. Barrier status is not established by this source.",
+        "Aisle 2": "Maintenance access zone; event-specific authorization must be checked.",
+        "East exit": "Marked exit route; keep clear."
+      }
+    }
+  },
+  {
+    "region_id": "asia",
+    "site": "East warehouse",
+    "version": 1,
+    "valid_from": "2026-11-01T00:00:00Z",
+    "source_ref": "asia-synthetic-site-rules-v1",
+    "content": {
+      "notice": "Synthetic policy for this demonstration only. Not operational safety guidance.",
+      "rules": {
+        "pedestrian_vehicle_proximity": {
+          "threshold_m": 2,
+          "below_threshold": {
+            "decision": "confirmed",
+            "severity": "high"
+          },
+          "at_or_above_threshold": {
+            "decision": "rejected",
+            "severity": null
+          },
+          "exceptions": "Apply relevant supervisor-approved guidance about verified barriers. A schedule alone does not establish a barrier or safe separation."
+        },
+        "blocked_exit": {
+          "duration_threshold_seconds": 60,
+          "at_or_above_threshold": {
+            "decision": "confirmed",
+            "severity": "medium"
+          },
+          "below_threshold": {
+            "decision": "rejected",
+            "severity": null
+          }
+        },
+        "restricted_area_entry": {
+          "authorized": {
+            "decision": "rejected",
+            "severity": null
+          },
+          "unauthorized": {
+            "decision": "confirmed",
+            "severity": "high"
+          },
+          "unknown": "Ask a supervisor whether this person was authorized. Do not infer authorization from another person or a delivery schedule."
+        }
+      },
+      "schedule": {
+        "deliveries": "Wednesday 05:00–09:00 UTC",
+        "note": "Planned activity is background context, not proof that a particular incident was authorized or safe."
+      },
+      "layout": {
+        "Dock 3": "Vehicle movements and a marked pedestrian route. Barrier status is not established by this source.",
+        "Aisle 2": "Maintenance access zone; event-specific authorization must be checked.",
+        "East exit": "Marked exit route; keep clear."
+      }
+    }
+  }
+]

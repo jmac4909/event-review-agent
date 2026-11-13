@@ -1,0 +1,227 @@
+[
+  {
+    "event_type": "pedestrian_vehicle_proximity",
+    "title": "Pedestrian beside a moving vehicle",
+    "description": "The camera detected a person walking alongside a moving forklift near the loading area.",
+    "zone": "Dock 3",
+    "camera": "EU-CAM-04",
+    "occurred_at": "2026-11-10T08:12:00Z",
+    "metadata": {
+      "detector": "proximity-v2",
+      "detector_score": 0.93,
+      "people_count": 1,
+      "vehicle_count": 1,
+      "estimated_distance_m": 1.4
+    },
+    "id": "00000001-0000-4000-8000-000000000001",
+    "region_id": "europe",
+    "site": "North warehouse",
+    "source_ref": "europe-fixture-1"
+  },
+  {
+    "event_type": "restricted_area_entry",
+    "title": "Person entered a marked access zone",
+    "description": "A person crossed the marked boundary beside the maintenance access route. Authorization is not established by the source event.",
+    "zone": "Aisle 2",
+    "camera": "EU-CAM-07",
+    "occurred_at": "2026-11-10T07:46:00Z",
+    "metadata": {
+      "detector": "zone-entry-v1",
+      "detector_score": 0.89,
+      "people_count": 1,
+      "zone_marker": "restricted",
+      "activity_label": "maintenance"
+    },
+    "id": "00000001-0000-4000-8000-000000000002",
+    "region_id": "europe",
+    "site": "North warehouse",
+    "source_ref": "europe-fixture-2"
+  },
+  {
+    "event_type": "blocked_exit",
+    "title": "Object detected beside an exit",
+    "description": "A stationary object was detected within the camera's configured exit boundary.",
+    "zone": "East exit",
+    "camera": "EU-CAM-02",
+    "occurred_at": "2026-11-09T16:30:00Z",
+    "metadata": {
+      "detector": "obstruction-v1",
+      "detector_score": 0.86,
+      "observed_duration_seconds": 95,
+      "object_label": "pallet"
+    },
+    "id": "00000001-0000-4000-8000-000000000003",
+    "region_id": "europe",
+    "site": "North warehouse",
+    "source_ref": "europe-fixture-3"
+  },
+  {
+    "event_type": "pedestrian_vehicle_proximity",
+    "title": "Similar vehicle proximity occurrence",
+    "description": "The camera detected two people near a moving forklift at the loading area.",
+    "zone": "Dock 3",
+    "camera": "EU-CAM-04",
+    "occurred_at": "2026-11-09T08:09:00Z",
+    "metadata": {
+      "detector": "proximity-v2",
+      "detector_score": 0.91,
+      "people_count": 2,
+      "vehicle_count": 1,
+      "estimated_distance_m": 1.6
+    },
+    "id": "00000001-0000-4000-8000-000000000004",
+    "region_id": "europe",
+    "site": "North warehouse",
+    "source_ref": "europe-fixture-4"
+  },
+  {
+    "event_type": "pedestrian_vehicle_proximity",
+    "title": "Pedestrian beside a moving vehicle",
+    "description": "The camera detected a person walking alongside a moving forklift near the loading area.",
+    "zone": "Dock 3",
+    "camera": "US-CAM-04",
+    "occurred_at": "2026-11-10T08:12:00Z",
+    "metadata": {
+      "detector": "proximity-v2",
+      "detector_score": 0.93,
+      "people_count": 1,
+      "vehicle_count": 1,
+      "estimated_distance_m": 1.4
+    },
+    "id": "00000002-0000-4000-8000-000000000001",
+    "region_id": "us",
+    "site": "West warehouse",
+    "source_ref": "us-fixture-1"
+  },
+  {
+    "event_type": "restricted_area_entry",
+    "title": "Person entered a marked access zone",
+    "description": "A person crossed the marked boundary beside the maintenance access route. Authorization is not established by the source event.",
+    "zone": "Aisle 2",
+    "camera": "US-CAM-07",
+    "occurred_at": "2026-11-10T07:46:00Z",
+    "metadata": {
+      "detector": "zone-entry-v1",
+      "detector_score": 0.89,
+      "people_count": 1,
+      "zone_marker": "restricted",
+      "activity_label": "maintenance"
+    },
+    "id": "00000002-0000-4000-8000-000000000002",
+    "region_id": "us",
+    "site": "West warehouse",
+    "source_ref": "us-fixture-2"
+  },
+  {
+    "event_type": "blocked_exit",
+    "title": "Object detected beside an exit",
+    "description": "A stationary object was detected within the camera's configured exit boundary.",
+    "zone": "East exit",
+    "camera": "US-CAM-02",
+    "occurred_at": "2026-11-09T16:30:00Z",
+    "metadata": {
+      "detector": "obstruction-v1",
+      "detector_score": 0.86,
+      "observed_duration_seconds": 95,
+      "object_label": "pallet"
+    },
+    "id": "00000002-0000-4000-8000-000000000003",
+    "region_id": "us",
+    "site": "West warehouse",
+    "source_ref": "us-fixture-3"
+  },
+  {
+    "event_type": "pedestrian_vehicle_proximity",
+    "title": "Similar vehicle proximity occurrence",
+    "description": "The camera detected two people near a moving forklift at the loading area.",
+    "zone": "Dock 3",
+    "camera": "US-CAM-04",
+    "occurred_at": "2026-11-09T08:09:00Z",
+    "metadata": {
+      "detector": "proximity-v2",
+      "detector_score": 0.91,
+      "people_count": 2,
+      "vehicle_count": 1,
+      "estimated_distance_m": 1.6
+    },
+    "id": "00000002-0000-4000-8000-000000000004",
+    "region_id": "us",
+    "site": "West warehouse",
+    "source_ref": "us-fixture-4"
+  },
+  {
+    "event_type": "pedestrian_vehicle_proximity",
+    "title": "Pedestrian beside a moving vehicle",
+    "description": "The camera detected a person walking alongside a moving forklift near the loading area.",
+    "zone": "Dock 3",
+    "camera": "AS-CAM-04",
+    "occurred_at": "2026-11-10T08:12:00Z",
+    "metadata": {
+      "detector": "proximity-v2",
+      "detector_score": 0.93,
+      "people_count": 1,
+      "vehicle_count": 1,
+      "estimated_distance_m": 1.4
+    },
+    "id": "00000003-0000-4000-8000-000000000001",
+    "region_id": "asia",
+    "site": "East warehouse",
+    "source_ref": "asia-fixture-1"
+  },
+  {
+    "event_type": "restricted_area_entry",
+    "title": "Person entered a marked access zone",
+    "description": "A person crossed the marked boundary beside the maintenance access route. Authorization is not established by the source event.",
+    "zone": "Aisle 2",
+    "camera": "AS-CAM-07",
+    "occurred_at": "2026-11-10T07:46:00Z",
+    "metadata": {
+      "detector": "zone-entry-v1",
+      "detector_score": 0.89,
+      "people_count": 1,
+      "zone_marker": "restricted",
+      "activity_label": "maintenance"
+    },
+    "id": "00000003-0000-4000-8000-000000000002",
+    "region_id": "asia",
+    "site": "East warehouse",
+    "source_ref": "asia-fixture-2"
+  },
+  {
+    "event_type": "blocked_exit",
+    "title": "Object detected beside an exit",
+    "description": "A stationary object was detected within the camera's configured exit boundary.",
+    "zone": "East exit",
+    "camera": "AS-CAM-02",
+    "occurred_at": "2026-11-09T16:30:00Z",
+    "metadata": {
+      "detector": "obstruction-v1",
+      "detector_score": 0.86,
+      "observed_duration_seconds": 95,
+      "object_label": "pallet"
+    },
+    "id": "00000003-0000-4000-8000-000000000003",
+    "region_id": "asia",
+    "site": "East warehouse",
+    "source_ref": "asia-fixture-3"
+  },
+  {
+    "event_type": "pedestrian_vehicle_proximity",
+    "title": "Similar vehicle proximity occurrence",
+    "description": "The camera detected two people near a moving forklift at the loading area.",
+    "zone": "Dock 3",
+    "camera": "AS-CAM-04",
+    "occurred_at": "2026-11-09T08:09:00Z",
+    "metadata": {
+      "detector": "proximity-v2",
+      "detector_score": 0.91,
+      "people_count": 2,
+      "vehicle_count": 1,
+      "estimated_distance_m": 1.6
+    },
+    "id": "00000003-0000-4000-8000-000000000004",
+    "region_id": "asia",
+    "site": "East warehouse",
+    "source_ref": "asia-fixture-4"
+  }
+]

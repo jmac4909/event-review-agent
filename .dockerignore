@@ -1,0 +1,16 @@
+.git
+.panefleet-*
+.work
+.runtime
+.local-state
+.venv
+.env
+.env.*
+**/__pycache__
+**/.pytest_cache
+**/node_modules
+frontend/dist
+test-results
+playwright-report
+deliverables
+

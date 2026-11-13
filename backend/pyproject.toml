@@ -1,0 +1,22 @@
+[project]
+name = "event-review"
+version = "0.1.0"
+description = "A regional event review prototype"
+requires-python = ">=3.12"
+dependencies = [
+  "fastapi>=0.115,<1",
+  "uvicorn>=0.34,<1",
+  "psycopg[binary]>=3.2,<4",
+  "itsdangerous>=2.2,<3",
+  "anthropic>=1,<2",
+  "model2vec==0.10.0",
+]
+
+[project.optional-dependencies]
+test = ["pytest>=8,<10", "httpx>=0.28,<1", "pytest-socket>=0.7,<1"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+addopts = "-ra --disable-socket --allow-unix-socket"
+

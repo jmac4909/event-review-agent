@@ -1,0 +1,98 @@
+services:
+  db:
+    image: pgvector/pgvector:pg15
+    environment:
+      POSTGRES_USER: review_bootstrap
+      POSTGRES_DB: event_review
+      # No TCP listener or published database port. Only the application's
+      # private socket volume is used for this synthetic-data prototype.
+      POSTGRES_HOST_AUTH_METHOD: trust
+    command: ["postgres", "-c", "listen_addresses=", "-c", "max_connections=30"]
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - postgres_socket:/var/run/postgresql
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -h /var/run/postgresql -U review_bootstrap -d event_review"]
+      interval: 2s
+      timeout: 3s
+      retries: 20
+
+  setup:
+    build:
+      context: .
+      target: app
+    command: ["python", "-m", "event_review.bootstrap", "--socket-dir", "/var/run/postgresql"]
+    volumes:
+      - postgres_socket:/var/run/postgresql
+    depends_on:
+      db:
+        condition: service_healthy
+
+  api:
+    build:
+      context: .
+      target: app
+    environment:
+      REVIEW_PGHOST: /var/run/postgresql
+      REVIEW_PGDATABASE: event_review
+      REVIEW_MODEL_MODE: ${REVIEW_MODEL_MODE:-mock}
+      REVIEW_ENABLED_MODELS: ${REVIEW_ENABLED_MODELS:-}
+      REVIEW_ANTHROPIC_MODEL: ${REVIEW_ANTHROPIC_MODEL:-claude-sonnet-5-5}
+      REVIEW_MEMORY_MATCHING: ${REVIEW_MEMORY_MATCHING:-hybrid}
+      REVIEW_FEED_INTERVAL_SECONDS: ${REVIEW_FEED_INTERVAL_SECONDS:-30}
+      REVIEW_CLAIM_SECONDS: ${REVIEW_CLAIM_SECONDS:-900}
+      REVIEW_MODEL_TIMEOUT_SECONDS: ${REVIEW_MODEL_TIMEOUT_SECONDS:-90}
+      REVIEW_COOKIE_SECURE: ${REVIEW_COOKIE_SECURE:-false}
+      REVIEW_SESSION_SECRET: ${REVIEW_SESSION_SECRET:-}
+      REVIEW_PREVIEW_ACCESS_HASH: ${REVIEW_PREVIEW_ACCESS_HASH:-}
+    ports:
+      - "127.0.0.1:${REVIEW_PORT:-8116}:8000"
+    volumes:
+      - postgres_socket:/var/run/postgresql
+    depends_on:
+      setup:
+        condition: service_completed_successfully
+
+  workers:
+    build:
+      context: .
+      target: app
+    command: ["python", "-m", "event_review.worker"]
+    environment:
+      REVIEW_PGHOST: /var/run/postgresql
+      REVIEW_PGDATABASE: event_review
+      REVIEW_MODEL_MODE: ${REVIEW_MODEL_MODE:-mock}
+      REVIEW_ENABLED_MODELS: ${REVIEW_ENABLED_MODELS:-}
+      REVIEW_MEMORY_MATCHING: ${REVIEW_MEMORY_MATCHING:-hybrid}
+      REVIEW_FEED_INTERVAL_SECONDS: ${REVIEW_FEED_INTERVAL_SECONDS:-30}
+      REVIEW_CLAIM_SECONDS: ${REVIEW_CLAIM_SECONDS:-900}
+      REVIEW_MODEL_TIMEOUT_SECONDS: ${REVIEW_MODEL_TIMEOUT_SECONDS:-90}
+      REVIEW_MODEL_MAX_TOKENS: ${REVIEW_MODEL_MAX_TOKENS:-1200}
+      REVIEW_ANTHROPIC_MODEL: ${REVIEW_ANTHROPIC_MODEL:-claude-sonnet-5-5}
+      REVIEW_CODEX_MODEL: ${REVIEW_CODEX_MODEL:-}
+      ANTHROPIC_API_KEY: ${ANTHROPIC_API_KEY:-}
+    volumes:
+      - postgres_socket:/var/run/postgresql
+      - codex_auth:/home/review/.codex
+    depends_on:
+      setup:
+        condition: service_completed_successfully
+
+  test:
+    profiles: ["test"]
+    build:
+      context: .
+      target: test
+    environment:
+      REVIEW_TEST_SOCKET: /var/run/postgresql
+    volumes:
+      - postgres_socket:/var/run/postgresql
+    depends_on:
+      db:
+        condition: service_healthy
+
+volumes:
+  postgres_data:
+  postgres_socket:
+  codex_auth:
+
